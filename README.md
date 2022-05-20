@@ -128,8 +128,10 @@ Feito com :zap: por **Lazaro Miranda** :fire: [Entre em contato!][linkedin]
 [html]: https://developer.mozilla.org/pt-BR/docs/Web/HTML
 [css]: https://developer.mozilla.org/pt-BR/docs/Web/CSS
 [figma]: https://www.figma.com/file/BOZLsBc45Rla1iW726NLlI/Open-Sugest%C3%B5es?node-id=0%3A1
-[angular12]: https://v12.angular.io/start
+[angular]: https://v12.angular.io/start
 [scss]: https://sass-lang.com/
+[ef]: https://docs.microsoft.com/pt-br/ef/
+[net6]: https://dotnet.microsoft.com/en-us/download/dotnet/6.0
 [swagger]: https://swagger.io/
 [chartjs]: https://www.chartjs.org/
 [compodoc]: https://compodoc.app/
