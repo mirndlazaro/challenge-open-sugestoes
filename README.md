@@ -44,7 +44,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 ### Backend:
 - [.NET 6][net6]
 - [Entity Framework][ef]
-- [SQLServer][sqlserver]
+- [SQLServer][sqlmangmnt]
 
 ### Complementos
 - [Swagger][swagger]
