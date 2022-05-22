@@ -55,7 +55,7 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEmployee(int id, Employee employee)
         {
-            if (id != employee.Id)
+            if (id != employee.ID)
             {
                 return BadRequest();
             }
@@ -93,7 +93,7 @@ namespace API.Controllers
             _context.Employees.Add(employee);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
+            return CreatedAtAction("GetEmployee", new { id = employee.ID }, employee);
         }
 
         // DELETE: api/Employees/5
@@ -118,7 +118,7 @@ namespace API.Controllers
 
         private bool EmployeeExists(int id)
         {
-            return (_context.Employees?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Employees?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

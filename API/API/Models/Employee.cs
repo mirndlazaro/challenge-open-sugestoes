@@ -5,12 +5,12 @@ namespace API.Models
 {
 	public class Employee
 	{
+        [Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[Key, Column(Order = 0)]
-		public int Id { get; set; }
+		public int ID { get; set; }
 
 		[Required]
-		[StringLength(100)]
-		public string Title { get; set; } = string.Empty;
+		[StringLength(100, ErrorMessage = "First name cannot be longer than 100 characters.")]
+		public string Name { get; set; } = string.Empty;
 	}
 }

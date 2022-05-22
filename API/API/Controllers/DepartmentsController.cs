@@ -12,55 +12,55 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SuggestionsController : ControllerBase
+    public class DepartmentsController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public SuggestionsController(DataContext context)
+        public DepartmentsController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Suggestions
+        // GET: api/Departments
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Suggestion>>> GetSuggestions()
+        public async Task<ActionResult<IEnumerable<Department>>> GetDepartments()
         {
-          if (_context.Suggestions == null)
+          if (_context.Departments == null)
           {
               return NotFound();
           }
-            return await _context.Suggestions.ToListAsync();
+            return await _context.Departments.ToListAsync();
         }
 
-        // GET: api/Suggestions/5
+        // GET: api/Departments/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Suggestion>> GetSuggestion(int id)
+        public async Task<ActionResult<Department>> GetDepartment(int id)
         {
-          if (_context.Suggestions == null)
+          if (_context.Departments == null)
           {
               return NotFound();
           }
-            var suggestion = await _context.Suggestions.FindAsync(id);
+            var department = await _context.Departments.FindAsync(id);
 
-            if (suggestion == null)
+            if (department == null)
             {
                 return NotFound();
             }
 
-            return suggestion;
+            return department;
         }
 
-        // PUT: api/Suggestions/5
+        // PUT: api/Departments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSuggestion(int id, Suggestion suggestion)
+        public async Task<IActionResult> PutDepartment(int id, Department department)
         {
-            if (id != suggestion.Id)
+            if (id != department.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(suggestion).State = EntityState.Modified;
+            _context.Entry(department).State = EntityState.Modified;
 
             try
             {
@@ -68,7 +68,7 @@ namespace API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SuggestionExists(id))
+                if (!DepartmentExists(id))
                 {
                     return NotFound();
                 }
@@ -81,44 +81,44 @@ namespace API.Controllers
             return NoContent();
         }
 
-        // POST: api/Suggestions
+        // POST: api/Departments
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Suggestion>> PostSuggestion(Suggestion suggestion)
+        public async Task<ActionResult<Department>> PostDepartment(Department department)
         {
-          if (_context.Suggestions == null)
+          if (_context.Departments == null)
           {
-              return Problem("Entity set 'DataContext.Suggestions'  is null.");
+              return Problem("Entity set 'DataContext.Departments'  is null.");
           }
-            _context.Suggestions.Add(suggestion);
+            _context.Departments.Add(department);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSuggestion", new { id = suggestion.Id }, suggestion);
+            return CreatedAtAction("GetDepartment", new { id = department.ID }, department);
         }
 
-        // DELETE: api/Suggestions/5
+        // DELETE: api/Departments/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSuggestion(int id)
+        public async Task<IActionResult> DeleteDepartment(int id)
         {
-            if (_context.Suggestions == null)
+            if (_context.Departments == null)
             {
                 return NotFound();
             }
-            var suggestion = await _context.Suggestions.FindAsync(id);
-            if (suggestion == null)
+            var department = await _context.Departments.FindAsync(id);
+            if (department == null)
             {
                 return NotFound();
             }
 
-            _context.Suggestions.Remove(suggestion);
+            _context.Departments.Remove(department);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool SuggestionExists(int id)
+        private bool DepartmentExists(int id)
         {
-            return (_context.Suggestions?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Departments?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

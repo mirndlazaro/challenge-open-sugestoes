@@ -4,7 +4,7 @@
 
 namespace API.Migrations
 {
-    public partial class InitialCreateDb : Migration
+    public partial class ComplexDataModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,65 +12,65 @@ namespace API.Migrations
                 name: "Departments",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Departments", x => x.Id);
+                    table.PrimaryKey("PK_Departments", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Employees",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employees", x => x.Id);
+                    table.PrimaryKey("PK_Employees", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Suggestions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    DepartmentId = table.Column<int>(type: "int", nullable: false),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    DepartmentID = table.Column<int>(type: "int", nullable: false),
+                    EmployeeID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Suggestions", x => x.Id);
+                    table.PrimaryKey("PK_Suggestions", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Suggestions_Departments_DepartmentId",
-                        column: x => x.DepartmentId,
+                        name: "FK_Suggestions_Departments_DepartmentID",
+                        column: x => x.DepartmentID,
                         principalTable: "Departments",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Suggestions_Employees_EmployeeId",
-                        column: x => x.EmployeeId,
+                        name: "FK_Suggestions_Employees_EmployeeID",
+                        column: x => x.EmployeeID,
                         principalTable: "Employees",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Suggestions_DepartmentId",
+                name: "IX_Suggestions_DepartmentID",
                 table: "Suggestions",
-                column: "DepartmentId");
+                column: "DepartmentID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Suggestions_EmployeeId",
+                name: "IX_Suggestions_EmployeeID",
                 table: "Suggestions",
-                column: "EmployeeId");
+                column: "EmployeeID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
