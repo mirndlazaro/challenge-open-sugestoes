@@ -17,7 +17,7 @@ O OpenSystem Sugestões é o desafio técnico da OpenSystem.
 É uma aplicação desenvolvida para alocar sugestões empresariais feitas pelos colaboradores da OpenSystem.
 
 ## Requisitos técnicos :heavy_check_mark:
-- [ ] REQ1: Menu lateral com cadastro e listagem de: Departamentos e Sugestões
+- [x] REQ1: Menu lateral com cadastro e listagem de: Departamentos e Sugestões
 - [x] REQ2: Página de cadastro de sugestões
 - [x] REQ3: Deverá ser apresentada uma página para listagem das sugestões cadastradas, com possibilidade de filtrar por departamento.
 - [x] REQ4: Deverá existir uma página para cadastro de departamentos

@@ -5,9 +5,9 @@ namespace API.Models
 {
     public class Department
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key, Column(Order = 0)]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Required]
         [StringLength(100)]

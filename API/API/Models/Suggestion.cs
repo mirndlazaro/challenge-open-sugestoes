@@ -5,22 +5,19 @@ namespace API.Models
 {
     public class Suggestion
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key, Column(Order = 0)]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Required]
         [StringLength(100)]
         public string? Title { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(200)]
+        [StringLength(10000)]
         public string Description { get; set; } = string.Empty;
-        
-        [Required]
-        public Department? Department { get; set; }
-        
-        [Required]
-        public Employee? Employee { get; set; }
+
+        public virtual Department? Department { get; set; }
+        public virtual Employee? Employee { get; set; }
     }
 }
