@@ -53,16 +53,10 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - [Compodoc][compodoc]
 - [Sweet Alert 2][swal2]
 
-## :fork_and_knife: Gif - Dashboard do Open Sugestões: 
+## :fork_and_knife: Gif - Open Sugestões em funcionamento: 
 <div align="center">
-  <img src="" alt="Public-Foodfy" height="450px">
+  <img src="https://github.com/mirndlazaro/challenge-open-sugestoes/blob/master/Open-Sugest%C3%B5es-gif.gif" alt="Public-Open-Sugestões" height="450px">
 </div>
-
-## :fork_and_knife: Gif - Sessão de Cadastro de Departamentos do Open Sugestões: 
-<div align="center">
-  <img src="" alt="Private-Foodfy" height="450px">
-</div>
-
 
 ## :construction_worker: Como usar:
 
