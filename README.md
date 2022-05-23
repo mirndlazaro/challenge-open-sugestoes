@@ -30,7 +30,7 @@ O OpenSystem Sugestões é o desafio técnico da OpenSystem.
 A interface foi desenvolvida através da plataforma [Figma][figma]:
 
 <div align="center">
-  <img src="" alt="Interface Figma" height="450px">
+  <img src="https://github.com/mirndlazaro/challenge-open-sugestoes/blob/master/Screenshot_figma.png" alt="Interface Figma" height="450px">
 </div>
 
 ## :rocket: Tecnologias:
