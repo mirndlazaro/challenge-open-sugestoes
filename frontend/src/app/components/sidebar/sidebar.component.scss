@@ -1,0 +1,11 @@
+.dropdown-menu > li {
+  display: inline-block;
+}
+
+.open > ul {
+  display: inline-flex !important;
+}
+
+.nav-item.show.dropdown > ul {
+position: relative;
+}

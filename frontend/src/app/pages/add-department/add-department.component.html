@@ -1,0 +1,45 @@
+<div class="header pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0" *ngIf="!currentDepartment">Novo departamento</h3>
+              <h3 class="mb-0" *ngIf="currentDepartment">Editar departamento</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="pl-lg-4">
+            <div class="row">
+              <div class="col">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label class="form-control-label" for="name">Nome do departamento</label>
+                    <input type="text" id="name" formControlName="name" *ngIf="!currentDepartment" [(ngModel)]="name" name="name"
+                      class="form-control form-control-alternative" placeholder="Digite o nome do departamento">
+                    <input type="text" id="name" formControlName="name" *ngIf="currentDepartment" [(ngModel)]="currentDepartment.name" name="name"
+                      class="form-control form-control-alternative" placeholder="Digite o nome do departamento">
+                  </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button *ngIf="!currentDepartment" (click)="addDepartment()" type="button" class="btn btn-primary">Adicionar</button>
+            <button  *ngIf="currentDepartment" (click)="editDepartment()" type="button" class="btn btn-primary">Salvar</button>
+            <button routerLinkActive="active" [routerLink]="['/departments']" type="button" class="btn btn-secondary"
+              data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

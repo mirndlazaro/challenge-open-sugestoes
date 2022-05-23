@@ -1,0 +1,72 @@
+<div class="header pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Adicionar sugestão</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-6 col-md-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">Título</label>
+                    <input type="text" id="input-username" class="form-control form-control-alternative"
+                    [(ngModel)]="title" placeholder="Digite o título da sua sugestão">
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-group">
+                    <label for="department" class="form-label">Departamento</label>
+                    <select class="form-control" name="status" id="status" [(ngModel)]="department">
+                      <option value='' disabled>Selecione uma opção... </option>
+                      <option *ngFor="let department of departmentList$|async" [department]="department">
+                        {{department.name}}</option>
+                    </select>
+                  </div>
+
+
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">Colaborador</label>
+                    <input type="text" id="input-username" class="form-control form-control-alternative"
+                    [(ngModel)]="employee" placeholder="Digite o título da sua sugestão">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pl-lg-4">
+              <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" id="input-username" class="form-control form-control-alternative"
+                [(ngModel)]="description" [value]="description" placeholder="Descreva a justificativa para a solução">
+                <!--
+                <textarea rows="4" class="form-control form-control-alternative"
+                [(ngModel)]="description" [value]="description" placeholder="Descreva a justificativa para a solução">
+                </textarea>
+              -->
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button (click)="addSuggestion()" type="button" class="btn btn-primary">Adicionar</button>
+              <button routerLinkActive="active" [routerLink]="['/suggestions']" type="button" class="btn btn-secondary"
+                data-dismiss="modal">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

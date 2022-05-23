@@ -1,0 +1,76 @@
+<div class="header pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Departamentos</h3>
+            </div>
+            <div class="col-4 text-right">
+              <a routerLinkActive="active" [routerLink]="['/add-department']" class="btn btn-sm btn-primary">Adicionar departamento</a>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive" >
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Nome do departamento</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody  *ngIf="(departmentList$ | async) as departmentList">
+              <tr *ngFor="let department of departmentList">
+                <td>{{department.name}}</td>
+                <td class="td-actions text-right">
+                  <a routerLinkActive="active" routerLink="/edit-department/{{department.id}}" class="btn btn-sm btn-primary mr-1">
+                    <i class="ni ni-settings-gear-65 pt-1"></i>
+                  </a>
+                  <button (click)="deleteDepartment(department)" type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                    <i class="ni ni-fat-remove pt-1"></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer py-4">
+          <nav aria-label="...">
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar departamento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label class="form-control-label" for="name">Nome do departamento</label>
+        <input type="text" id="name" [(ngModel)]="name" name="name" class="form-control form-control-alternative" placeholder="Digite o nome do departamento">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Salvar alterações</button>
+      </div>
+    </div>
+  </div>
+</div>
